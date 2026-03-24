@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const postSchema = new Schema(
+const blogSchema = new Schema(
   {
     title: {
       type: String,
-      required: [true, "Post title is required"],
+      required: [true, "Blog title is required"],
       trim: true,
       minlength: [3, "Title must be at least 3 characters"],
       maxlength: [180, "Title cannot exceed 180 characters"],
@@ -33,7 +33,7 @@ const postSchema = new Schema(
     },
     content: {
       type: String,
-      required: [true, "Post content is required"],
+      required: [true, "Blog content is required"],
     },
     tags: [
       {
@@ -82,7 +82,7 @@ const postSchema = new Schema(
   }
 );
 
-postSchema.index({ status: 1, publishedAt: -1 });
-postSchema.index({ title: "text", shortDesc: "text", content: "text" });
+blogSchema.index({ status: 1, publishedAt: -1 });
+blogSchema.index({ title: "text", shortDesc: "text", content: "text" });
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Blog", blogSchema);
