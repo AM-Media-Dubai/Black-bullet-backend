@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const MONGODB_URI = "mongodb+srv://kaighassysuresh_db_user:cY7vBN3sFiMYLIGW@cluster0.bctmocd.mongodb.net/black_bullet?appName=Cluster0";
+require("dotenv").config();
+const MONGODB_URI = process.env.MONGODB_URI;
 
 const BROKEN_URL = "https://res.cloudinary.com/dzsyzxhjx/image/upload/v1774423927/esgznedghc3y2aibybud.jpg";
 const FALLBACK_URL = "https://placehold.co/600x400?text=Image+Not+Found";
